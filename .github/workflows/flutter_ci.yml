@@ -1,0 +1,43 @@
+name: Flutter CI/CD
+
+on:
+  push:
+    branches: [main]
+  pull_request:
+    branches: [main]
+
+jobs:
+  build-and-test:
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Checkout code
+        uses: actions/checkout@v3
+
+      - name: Set up Flutter
+        uses: subosito/flutter-action@v2
+        with:
+          flutter-version: '3.27.0'
+          channel: stable
+
+      - name: Install dependencies
+        run: flutter pub get
+        working-directory: ./field_flow
+
+      - name: Run analyzer
+        run: flutter analyze
+        working-directory: ./field_flow
+
+      - name: Run tests
+        run: flutter test
+        working-directory: ./field_flow
+
+      - name: Build APK (release)
+        run: flutter build apk --release
+        working-directory: ./field_flow
+
+      - name: Upload release APK
+        uses: actions/upload-artifact@v3
+        with:
+          name: app-release-apk
+          path: app/build/app/outputs/flutter-apk/app-release.apk
