@@ -16,4 +16,6 @@ abstract class VisitRepository {
   Future<void> deleteVisit(int id);
 
   Future<int> getVisitCount({VisitStatus? status});
+
+  Future<Map<VisitStatus, int>> getVisitStatistics();
 }
