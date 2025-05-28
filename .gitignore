@@ -118,4 +118,6 @@ coverage/
 
 **/**/.firebase
 
+./field_flow/.env
+
 pubspec_overrides.yaml
