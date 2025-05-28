@@ -1,6 +1,6 @@
 <manifest xmlns:android="http://schemas.android.com/apk/res/android">
     <application
-        android:label="field_flow"
+        android:label="Field flow"
         android:name="${applicationName}"
         android:icon="@mipmap/ic_launcher">
         <activity

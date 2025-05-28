@@ -1,5 +1,4 @@
-import 'package:route_to_market/src/domain/entities/visit.dart';
-import 'package:route_to_market/src/domain/entities/visit_status.dart';
+import 'package:visits/visits.dart';
 
 class VisitModel {
   final int id;

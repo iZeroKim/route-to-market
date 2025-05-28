@@ -1,5 +1,6 @@
 import 'package:equatable/equatable.dart';
-import 'package:route_to_market/src/domain/entities/visit_status.dart';
+import 'package:visits/src/domain/entities/visit_status.dart';
+
 
 
 class Visit extends Equatable {

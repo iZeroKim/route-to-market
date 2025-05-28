@@ -1,16 +1,15 @@
 import 'dart:convert';
 
 import 'package:flutter/foundation.dart';
-import 'package:route_to_market/src/domain/entities/visit.dart';
 
-import 'package:route_to_market/src/domain/entities/visit_status.dart';
+import 'package:visits/visits.dart';
+
 
 import '../../core/exceptions.dart';
 import '../../domain/repositories/visit_repository.dart';
 
 import 'package:http/http.dart' as http;
 
-import '../models/visit_model.dart';
 
 class VisitRepositoryImpl implements VisitRepository {
   final http.Client _client;

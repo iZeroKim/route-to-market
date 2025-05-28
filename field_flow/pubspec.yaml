@@ -38,8 +38,8 @@ dependencies:
   flutter_dotenv: ^5.2.1
   http: ^1.4.0
 
-  route_to_market:
-    path: ../packages/route_to_market
+  route_to_market_main:
+    path: ../packages/route_to_market_main
 
 dev_dependencies:
   flutter_test:

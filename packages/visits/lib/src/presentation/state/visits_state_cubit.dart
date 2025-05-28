@@ -1,7 +1,7 @@
 import 'package:equatable/equatable.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 
-import '../../../route_to_market.dart';
+import 'package:visits/visits.dart';
 
 abstract class VisitsState extends Equatable {
   @override
