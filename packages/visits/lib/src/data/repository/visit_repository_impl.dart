@@ -98,13 +98,7 @@ class VisitRepositoryImpl implements VisitRepository {
     if (kDebugMode) {
       print("body: $body");
     }
-    try {
-      body.map((e) => VisitModel.fromJson(e)).map((e) => e.toEntity()).toList();
-    } catch (e, s) {
-      if (kDebugMode) {
-        print("Error parsing response: $e $s");
-      }
-    }
+
     return body.map((e) => VisitModel.fromJson(e)).map((e) => e.toEntity()).toList();
   }
 

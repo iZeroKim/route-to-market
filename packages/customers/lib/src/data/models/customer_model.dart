@@ -1,3 +1,5 @@
+import 'package:flutter/foundation.dart';
+
 import '../../domain/entities/customer.dart';
 
 class CustomerModel extends Customer {
@@ -17,6 +19,22 @@ class CustomerModel extends Customer {
       'name': name,
       'created_at': createdAt.toIso8601String(),
     };
+  }
+
+  Customer toEntity() {
+    return Customer(
+      id: id,
+      name: name,
+      createdAt: createdAt,
+    );
+  }
+
+  factory CustomerModel.fromEntity(Customer customer) {
+    return CustomerModel(
+      id: customer.id,
+      name: customer.name,
+      createdAt: customer.createdAt,
+    );
   }
 
 }

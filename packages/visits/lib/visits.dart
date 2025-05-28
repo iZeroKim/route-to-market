@@ -1,7 +1,6 @@
 library;
 
 export 'src/domain/entities/visit.dart';
-export 'src/domain/entities/customer.dart';
 export 'src/domain/entities/visit_status.dart';
 
 export 'src/data/models/visit_model.dart';
