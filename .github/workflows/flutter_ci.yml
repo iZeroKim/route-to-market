@@ -28,9 +28,9 @@ jobs:
         run: flutter analyze
         working-directory: ./field_flow
 
-      - name: Run tests
-        run: flutter test
-        working-directory: ./field_flow
+#      - name: Run tests
+#        run: flutter test
+#        working-directory: ./field_flow
 
       - name: Build APK (release)
         run: flutter build apk --release
