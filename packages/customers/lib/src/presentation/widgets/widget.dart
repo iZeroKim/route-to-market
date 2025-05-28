@@ -60,6 +60,12 @@ class CustomersDropdown extends StatelessWidget {
                   closedBorder: Border.all(
                     color: Colors.grey,
                   ),
+                  closedFillColor: Colors.transparent,
+                  expandedFillColor: Colors.white,
+                  expandedBorderRadius: BorderRadius.circular(8),
+                  expandedBorder: Border.all(
+                    color: Colors.grey,
+                  ),
                   listItemStyle: const TextStyle(fontSize: 13),
                   hintStyle: const TextStyle(fontSize: 13, color: Colors.black),
                   headerStyle: const TextStyle(
