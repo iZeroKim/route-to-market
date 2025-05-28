@@ -17,17 +17,22 @@ Future<void> main() async {
 
   final visitRepository = VisitRepositoryImpl(client: client, headers: headers, baseUrl: AppConstants.baseUrl);
   final customerRepository = CustomerRepositoryImpl(apiClient: apiClient);
+  final activityRepository = ActivityRepositoryImpl(apiClient: apiClient);
 
 
-  runApp(MyApp(getVisitsUseCase: GetVisitsUseCase(repository: visitRepository), getCustomersUseCase: GetCustomersUseCase(repository: customerRepository)));
+  runApp(MyApp(
+      getActivitiesUseCase: GetActivitiesUseCase(repository: activityRepository),
+      getVisitsUseCase: GetVisitsUseCase(repository: visitRepository),
+      getCustomersUseCase: GetCustomersUseCase(repository: customerRepository)));
 }
 
 class MyApp extends StatelessWidget {
   final GetVisitsUseCase getVisitsUseCase;
   final GetCustomersUseCase getCustomersUseCase;
-  const MyApp({super.key, required this.getVisitsUseCase, required this.getCustomersUseCase});
+  final GetActivitiesUseCase getActivitiesUseCase;
+  const MyApp({super.key, required this.getVisitsUseCase, required this.getCustomersUseCase, required this.getActivitiesUseCase});
 
-  // This widget is the root of your application.
+
   @override
   Widget build(BuildContext context) {
     return MaterialApp(
@@ -41,6 +46,7 @@ class MyApp extends StatelessWidget {
         providers: [
           BlocProvider(create: (context) => VisitsCubit(getVisitsUseCase: getVisitsUseCase)),
           BlocProvider(create: (context) => CustomersCubit(getCustomersUseCase: getCustomersUseCase)),
+          BlocProvider(create: (context) => ActivitiesCubit(getActivitiesUseCase: getActivitiesUseCase)),
         ],
 
         child: const VisitsPage(),

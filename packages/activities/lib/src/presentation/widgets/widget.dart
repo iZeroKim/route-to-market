@@ -53,7 +53,7 @@ class ActivitiesDropdown extends StatelessWidget {
               ),
             ),
             CustomDropdown<Activity>.multiSelectSearch(
-              hintText: 'Select customer',
+              hintText: 'Select activities',
               items: activities,
               // initialItem: Activities.first,
               decoration: CustomDropdownDecoration(
@@ -73,6 +73,9 @@ class ActivitiesDropdown extends StatelessWidget {
                     fontSize: 13,
                   )),
               listItemBuilder: (_, activity, isLoading, isSelected ) => _buildListItem(context, activity, false, isSelected),
+              headerListBuilder: (_, activities, isLoading ) {
+                return Text(activities.map((e) => e.description).join(', '));
+              },
               listItemPadding:
               const EdgeInsets.symmetric(horizontal: 10, vertical: 10),
               closedHeaderPadding:

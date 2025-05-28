@@ -6,3 +6,4 @@ export 'src/core/api_client.dart';
 
 export 'package:visits/visits.dart';
 export 'package:customers/customers.dart';
+export 'package:activities/activities.dart';

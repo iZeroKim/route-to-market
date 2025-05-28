@@ -15,6 +15,7 @@ class _VisitsPageState extends State<VisitsPage> {
     super.initState();
     context.read<VisitsCubit>().fetchVisits();
     context.read<CustomersCubit>().fetchCustomers();
+    context.read<ActivitiesCubit>().fetchActivities();
   }
 
   @override
@@ -25,8 +26,11 @@ class _VisitsPageState extends State<VisitsPage> {
         padding: const EdgeInsets.all(20.0),
         child: Column(
           children: [
-            Text('Visits'),
+            Text('Customers'),
             CustomersDropdown(),
+            const Divider(),
+            Text('Customers'),
+            ActivitiesDropdown(),
             const Divider(),
             Text('Visits'),
             Expanded(

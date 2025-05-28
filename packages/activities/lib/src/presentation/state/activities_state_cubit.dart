@@ -37,7 +37,7 @@ class ActivitiesError extends ActivitiesState {
 class ActivitiesCubit extends Cubit<ActivitiesState>{
   GetActivitiesUseCase getActivitiesUseCase;
 
-  ActivitiesCubit(this.getActivitiesUseCase) : super(ActivitiesInitial());
+  ActivitiesCubit({ required this.getActivitiesUseCase}) : super(ActivitiesInitial());
 
   Future<void> fetchActivities() async {
     emit(ActivitiesLoading());
