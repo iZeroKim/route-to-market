@@ -1,10 +1,12 @@
 import 'package:equatable/equatable.dart';
+import 'package:route_to_market/src/domain/entities/visit_status.dart';
+
 
 class Visit extends Equatable {
   final int id;
   final int customerId;
   final DateTime visitDate;
-  final String status;
+  final VisitStatus status;
   final String location;
   final String notes;
   final List<int> activitiesDone;
