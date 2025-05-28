@@ -36,7 +36,7 @@ class _VisitsPageState extends State<VisitsPage> {
                 return ListTile(
                   title: Text('Visit to Customer ${visit.customerId}'),
                   subtitle: Text(
-                    '${visit.status.name} on ${visit.visitDate.toLocal()}',
+                    '${visit.status?.name} on ${visit.visitDate?.toLocal()}',
                   ),
                 );
               },

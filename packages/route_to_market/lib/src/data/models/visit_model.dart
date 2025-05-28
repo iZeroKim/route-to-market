@@ -4,12 +4,12 @@ import 'package:route_to_market/src/domain/entities/visit_status.dart';
 class VisitModel {
   final int id;
   final int customerId;
-  final DateTime visitDate;
-  final VisitStatus status;
-  final String location;
-  final String notes;
-  final List<int> activitiesDone;
-  final DateTime createdAt;
+  final DateTime? visitDate;
+  final VisitStatus? status;
+  final String? location;
+  final String? notes;
+  final List<int>? activitiesDone;
+  final DateTime? createdAt;
 
   const VisitModel({
     required this.id,
@@ -26,14 +26,14 @@ class VisitModel {
     return VisitModel(
       id: json['id'] as int,
       customerId: json['customer_id'] as int,
-      visitDate: DateTime.parse(json['visit_date'] as String),
+      visitDate:  json['visit_date'] == null ? null : DateTime.parse(json['visit_date'] as String),
       status: VisitStatusExtension.fromApiString(json['status'] as String),
-      location: json['location'] as String,
-      notes: json['notes'] as String,
+      location: json['location'] as String?,
+      notes: json['notes'] as String?,
       activitiesDone: List<String>.from(json['activities_done'] ?? [])
           .map((e) => int.parse(e))
           .toList(),
-      createdAt: DateTime.parse(json['created_at'] as String),
+      createdAt: json['created_at'] == null ? null : DateTime.parse(json['created_at'] as String),
     );
   }
 
@@ -41,12 +41,12 @@ class VisitModel {
     return {
       'id': id,
       'customer_id': customerId,
-      'visit_date': visitDate.toIso8601String(),
-      'status': status.toApiString(),
+      'visit_date': visitDate?.toIso8601String(),
+      'status': status?.toApiString(),
       'location': location,
       'notes': notes,
-      'activities_done': activitiesDone.map((e) => e.toString()).toList(),
-      'created_at': createdAt.toIso8601String(),
+      'activities_done': activitiesDone?.map((e) => e.toString()).toList(),
+      'created_at': createdAt?.toIso8601String(),
     };
   }
 

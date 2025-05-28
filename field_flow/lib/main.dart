@@ -12,6 +12,7 @@ Future<void> main() async {
   final headers= {
     'Content-Type': 'application/json',
     'Authorization': 'Bearer $apiKey',
+    'apiKey': apiKey
   };
 
   final visitRepository = VisitRepositoryImpl(client: client, headers: headers, baseUrl: AppConstants.baseUrl);
