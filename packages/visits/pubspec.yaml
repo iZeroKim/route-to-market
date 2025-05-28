@@ -1,7 +1,7 @@
 name: visits
 description: "A new Flutter package project."
 version: 0.0.1
-homepage:
+publish_to: none
 
 environment:
   sdk: ^3.6.0
@@ -13,6 +13,10 @@ dependencies:
   equatable: ^2.0.7
   http: 1.4.0
   flutter_bloc: ^9.1.1
+
+  route_to_market_main:
+    path: ../route_to_market_main
+
 dev_dependencies:
   flutter_test:
     sdk: flutter

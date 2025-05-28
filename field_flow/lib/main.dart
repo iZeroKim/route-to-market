@@ -13,16 +13,19 @@ Future<void> main() async {
     'Authorization': 'Bearer $apiKey',
     'apiKey': apiKey
   };
+  final apiClient = ApiClient(client: client, headers: headers, baseUrl: AppConstants.baseUrl);
 
   final visitRepository = VisitRepositoryImpl(client: client, headers: headers, baseUrl: AppConstants.baseUrl);
+  final customerRepository = CustomerRepositoryImpl(apiClient: apiClient);
 
 
-  runApp(MyApp(getVisitsUseCase: GetVisitsUseCase(repository: visitRepository),));
+  runApp(MyApp(getVisitsUseCase: GetVisitsUseCase(repository: visitRepository), getCustomersUseCase: GetCustomersUseCase(repository: customerRepository)));
 }
 
 class MyApp extends StatelessWidget {
   final GetVisitsUseCase getVisitsUseCase;
-  const MyApp({super.key, required this.getVisitsUseCase});
+  final GetCustomersUseCase getCustomersUseCase;
+  const MyApp({super.key, required this.getVisitsUseCase, required this.getCustomersUseCase});
 
   // This widget is the root of your application.
   @override
@@ -34,8 +37,12 @@ class MyApp extends StatelessWidget {
         colorScheme: ColorScheme.fromSeed(seedColor: Colors.blue),
         useMaterial3: true,
       ),
-      home: BlocProvider(
-        create: (context) => VisitsCubit(getVisitsUseCase: getVisitsUseCase),
+      home: MultiBlocProvider(
+        providers: [
+          BlocProvider(create: (context) => VisitsCubit(getVisitsUseCase: getVisitsUseCase)),
+          BlocProvider(create: (context) => CustomersCubit(getCustomersUseCase: getCustomersUseCase)),
+        ],
+
         child: const VisitsPage(),
       ),
     );
