@@ -36,6 +36,7 @@ dependencies:
   cupertino_icons: ^1.0.8
   flutter_bloc: ^9.1.1
   flutter_dotenv: ^5.2.1
+  http: ^1.4.0
 
   route_to_market:
     path: ../packages/route_to_market

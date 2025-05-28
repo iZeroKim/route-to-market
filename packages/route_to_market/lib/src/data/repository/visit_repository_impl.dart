@@ -1,5 +1,6 @@
 import 'dart:convert';
 
+import 'package:flutter/foundation.dart';
 import 'package:route_to_market/src/domain/entities/visit.dart';
 
 import 'package:route_to_market/src/domain/entities/visit_status.dart';
@@ -95,11 +96,15 @@ class VisitRepositoryImpl implements VisitRepository {
 
     final List<dynamic> body = json.decode(response.body);
 
-    print("body: $body");
+    if (kDebugMode) {
+      print("body: $body");
+    }
     try {
       body.map((e) => VisitModel.fromJson(e)).map((e) => e.toEntity()).toList();
     } catch (e, s) {
-      print("Error parsing response: ${e} ${s}");
+      if (kDebugMode) {
+        print("Error parsing response: $e $s");
+      }
     }
     return body.map((e) => VisitModel.fromJson(e)).map((e) => e.toEntity()).toList();
   }
