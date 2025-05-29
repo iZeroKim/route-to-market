@@ -26,13 +26,13 @@ class _VisitsPageState extends State<VisitsPage> {
         padding: const EdgeInsets.all(20.0),
         child: Column(
           children: [
-            Text('Customers'),
+            Text(Strings.customersDropdownTitle),
             CustomersDropdown(),
             const Divider(),
-            Text('Customers'),
+            Text(Strings.activitiesDropdownTitle),
             ActivitiesDropdown(),
             const Divider(),
-            Text('Visits'),
+            Text(Strings.visitsListTitle),
             Expanded(
               child: BlocBuilder<VisitsCubit, VisitsState>(
                 builder: (context, state) {

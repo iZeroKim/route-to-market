@@ -23,14 +23,17 @@ Future<void> main() async {
   runApp(MyApp(
       getActivitiesUseCase: GetActivitiesUseCase(repository: activityRepository),
       getVisitsUseCase: GetVisitsUseCase(repository: visitRepository),
-      getCustomersUseCase: GetCustomersUseCase(repository: customerRepository)));
+      getCustomersUseCase: GetCustomersUseCase(repository: customerRepository),
+    addVisitUseCase: AddVisitUseCase(repository: visitRepository),
+  ));
 }
 
 class MyApp extends StatelessWidget {
   final GetVisitsUseCase getVisitsUseCase;
   final GetCustomersUseCase getCustomersUseCase;
   final GetActivitiesUseCase getActivitiesUseCase;
-  const MyApp({super.key, required this.getVisitsUseCase, required this.getCustomersUseCase, required this.getActivitiesUseCase});
+  final AddVisitUseCase addVisitUseCase;
+  const MyApp({super.key, required this.getVisitsUseCase, required this.getCustomersUseCase, required this.getActivitiesUseCase, required this.addVisitUseCase});
 
 
   @override
@@ -47,6 +50,7 @@ class MyApp extends StatelessWidget {
           BlocProvider(create: (context) => VisitsCubit(getVisitsUseCase: getVisitsUseCase)),
           BlocProvider(create: (context) => CustomersCubit(getCustomersUseCase: getCustomersUseCase)),
           BlocProvider(create: (context) => ActivitiesCubit(getActivitiesUseCase: getActivitiesUseCase)),
+          BlocProvider(create: (context) => AddVisitCubit(addVisitUseCase: addVisitUseCase)),
         ],
 
         child: const VisitsPage(),

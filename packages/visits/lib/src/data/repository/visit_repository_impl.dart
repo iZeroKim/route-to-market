@@ -45,9 +45,12 @@ class VisitRepositoryImpl implements VisitRepository {
 
 
   @override
-  Future<void> addVisit(Visit visit) {
-    // TODO: implement addVisit
-    throw UnimplementedError();
+  Future<void> addVisit(Visit visit) async {
+    final uri = Uri.parse('$_baseUrl/visits');
+
+    // TODO: if time implement return saved visit
+    await _safeRequest(() => _client.post(uri, headers: _headers, body: jsonEncode(visit)));
+
   }
 
   @override
@@ -63,9 +66,18 @@ class VisitRepositoryImpl implements VisitRepository {
   }
 
   @override
-  Future<Map<VisitStatus, int>> getVisitStatistics() {
-    // TODO: implement getVisitStatistics
-    throw UnimplementedError();
+  Future<Map<VisitStatus, int>> getVisitStatistics() async {
+    final uri = Uri.parse('$_baseUrl/visits?select=status,count:id&group=status');
+    final response = await _safeRequest(() => _client.get(uri, headers: _headers));
+    final List<dynamic> body = json.decode(response.body);
+
+    final result = <VisitStatus, int>{};
+    for (final item in body) {
+      final status = VisitStatus.values.firstWhere((status) => status.toApiString() == item['status']);
+      result[status] = int.tryParse(item['count']) ?? 0;
+
+    }
+    return result;
   }
 
   @override
