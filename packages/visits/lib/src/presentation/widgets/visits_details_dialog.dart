@@ -116,8 +116,18 @@ class VisitDetailsDialog extends StatelessWidget {
                     ),
                     const SizedBox(height: 24),
                     const Divider(),
+                    if(visit.notes != null && visit.notes!.isNotEmpty)...[
+                      Text(
+                        'Notes',
+                        style: Theme.of(context).textTheme.titleMedium?.copyWith(fontWeight: FontWeight.w600),
+                      ),
+                      const SizedBox(height: 10),
+                    Text( '${visit.notes}' ),
+                    const SizedBox(height: 24),
+                    const Divider(),
+                    ],
                     Text(
-                      'Activities Done',
+                      'Activities done',
                       style: Theme.of(context).textTheme.titleMedium?.copyWith(fontWeight: FontWeight.w600),
                     ),
                     const SizedBox(height: 12),

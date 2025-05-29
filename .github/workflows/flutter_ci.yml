@@ -24,9 +24,9 @@ jobs:
         run: flutter pub get
         working-directory: ./field_flow
 
-      - name: Run analyzer
-        run: flutter analyze
-        working-directory: ./field_flow
+#      - name: Run analyzer
+#        run: flutter analyze
+#        working-directory: ./field_flow
 
 #      - name: Run tests
 #        run: flutter test

@@ -5,8 +5,8 @@ import 'package:flutter/foundation.dart';
 import 'package:visits/visits.dart';
 
 
-import '../../core/exceptions.dart';
-import '../../domain/repositories/visit_repository.dart';
+import '../../../core/exceptions.dart';
+import '../../../domain/repositories/visit_repository.dart';
 
 import 'package:http/http.dart' as http;
 

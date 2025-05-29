@@ -5,7 +5,7 @@ export 'src/domain/entities/visit_status.dart';
 
 export 'src/data/models/visit_model.dart';
 
-export 'src/data/repository/visit_repository_impl.dart';
+export 'src/data/repository/remote/visit_repository_impl.dart';
 
 export 'src/presentation/state/visits_state_cubit.dart';
 export 'src/presentation/state/add_visit_state_cubit.dart';
