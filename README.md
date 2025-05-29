@@ -4,8 +4,7 @@ A mobile Flutter application that helps sales agents track visits to customers a
 
 ## 📸 Screenshots
 #Visits list
-
-<img src="[https://user-images.githubusercontent.com/.../image.png](https://github.com/user-attachments/assets/5212c846-554e-4541-8b17-91fc84ffd749)" alt="Screenshot" width="400">
+![Screenshot_2025-05-29-23-45-12-60_aa60658cd3f19f08c50c717960654b5b](https://github.com/user-attachments/assets/c04cb1fc-180a-41d2-afee-063e6b05c66d)
 
 # Visit details
 ![Screenshot_2025-05-29-23-45-37-09_aa60658cd3f19f08c50c717960654b5b](https://github.com/user-attachments/assets/2e311acb-fb7f-4119-ad1d-4555b61fce55)
