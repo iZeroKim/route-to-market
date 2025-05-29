@@ -3,6 +3,8 @@ class AppException implements Exception {
   final StackTrace? stackTrace;
   AppException(this.message, [this.stackTrace]);
 
+
+
   @override
   String toString() {
     return 'AppException {message: $message, stackTrace: $stackTrace}';

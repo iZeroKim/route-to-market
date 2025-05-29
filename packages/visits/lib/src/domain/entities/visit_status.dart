@@ -13,6 +13,7 @@ extension VisitStatusExtension on VisitStatus {
         return 'Pending';
       case VisitStatus.cancelled:
         return 'Cancelled';
+
     }
   }
 

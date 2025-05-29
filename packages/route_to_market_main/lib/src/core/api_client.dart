@@ -1,4 +1,5 @@
 import 'dart:convert';
+import 'package:flutter/foundation.dart';
 import 'package:http/http.dart' as http;
 import 'exceptions.dart';
 
@@ -47,8 +48,14 @@ class ApiClient {
         throw ApiException(response.body, statusCode: response.statusCode);
       }
     } on http.ClientException catch (e) {
+      if (kDebugMode) {
+        print(e);
+      }
       throw NetworkException(e.message);
     } catch (e, s) {
+      if (kDebugMode) {
+        print(e);
+      }
       throw AppException('Unexpected error: $e', s);
     }
   }

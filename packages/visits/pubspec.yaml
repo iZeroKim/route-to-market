@@ -13,6 +13,7 @@ dependencies:
   equatable: ^2.0.7
   http: 1.4.0
   flutter_bloc: ^9.1.1
+  syncfusion_flutter_charts:
 
   route_to_market_main:
     path: ../route_to_market_main

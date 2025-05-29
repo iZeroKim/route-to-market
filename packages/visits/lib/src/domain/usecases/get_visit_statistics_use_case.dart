@@ -2,10 +2,10 @@ import '../../../visits.dart';
 import '../repositories/visit_repository.dart';
 
 class GetVisitStatisticsUseCase {
-  final VisitRepository _repository;
-  GetVisitStatisticsUseCase(this._repository);
+  final VisitRepository repository;
+  GetVisitStatisticsUseCase({required this.repository});
 
   Future<Map<VisitStatus, int>> call() {
-  return _repository.getVisitStatistics();
+  return repository.getVisitStatistics();
 }
 }

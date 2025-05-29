@@ -29,11 +29,13 @@ class VisitRepositoryImpl implements VisitRepository {
     try {
       final response = await request();
 
+      print(response);
       if (response.statusCode >= 200 && response.statusCode < 300) {
         return response;
       } else if (response.statusCode == 404) {
         throw NotFoundException();
       } else {
+        print(response.body);
         throw ApiException(response.body, statusCode: response.statusCode);
       }
     } on http.ClientException catch (e) {
@@ -67,23 +69,41 @@ class VisitRepositoryImpl implements VisitRepository {
 
   @override
   Future<Map<VisitStatus, int>> getVisitStatistics() async {
-    final uri = Uri.parse('$_baseUrl/visits?select=status,count:id&group=status');
+    final uri = Uri.parse('$_baseUrl/visits?select=status,count:id');
     final response = await _safeRequest(() => _client.get(uri, headers: _headers));
+    print(response);
     final List<dynamic> body = json.decode(response.body);
 
     final result = <VisitStatus, int>{};
     for (final item in body) {
+      print('item: $item status: ${item['status']}');
+      VisitStatus.values.map((status) => print('status: ${status.toApiString()}'));
+      print('Last');
       final status = VisitStatus.values.firstWhere((status) => status.toApiString() == item['status']);
-      result[status] = int.tryParse(item['count']) ?? 0;
+      print('status: $status ${status.toApiString()}');
+      print('result: $result');
+      try {
+        result[status] = item['count'] as int;
+      } catch (e) {
+        print('error: $e ${item['count']}');
+      }
+      result[status] = result[status] = item['count'] as int;
+      ;
+
+      print('result: $result');
     }
     return result;
   }
 
   @override
   Future<Map<VisitStatus, int>> getVisitStatisticsByCustomer(int customerId) async {
-    final uri = Uri.parse('$_baseUrl/visits?customer_id=eq.$customerId&select=status,count:id&group=status');
+    final uri = Uri.parse('$_baseUrl/visits?elect=status,count:id&group=status&customer_id=eq.$customerId');
     final response = await _safeRequest(() => _client.get(uri, headers: _headers));
+    print(response);
     final List<dynamic> body = json.decode(response.body);
+
+
+
 
     final result = <VisitStatus, int>{};
     for (final item in body) {

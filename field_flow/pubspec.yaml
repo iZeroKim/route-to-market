@@ -37,6 +37,7 @@ dependencies:
   flutter_bloc: ^9.1.1
   flutter_dotenv: ^5.2.1
   http: ^1.4.0
+  google_fonts:
 
   route_to_market_main:
     path: ../packages/route_to_market_main

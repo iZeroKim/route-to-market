@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:route_to_market_main/route_to_market_main.dart';
+import 'package:visits/src/presentation/pages/statistics_card.dart';
 
 class VisitsPage extends StatefulWidget {
   const VisitsPage({super.key});
@@ -16,16 +17,24 @@ class _VisitsPageState extends State<VisitsPage> {
     context.read<VisitsCubit>().fetchVisits();
     context.read<CustomersCubit>().fetchCustomers();
     context.read<ActivitiesCubit>().fetchActivities();
+    context.read<VisitStatisticsCubit>().getVisitStatistics();
   }
 
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      appBar: AppBar(title: const Text('Customer Visits')),
+      appBar: AppBar(title: Text(DateTime.now().toString()), elevation: 0,),
       body: Padding(
         padding: const EdgeInsets.all(20.0),
         child: Column(
+          crossAxisAlignment: CrossAxisAlignment.start,
           children: [
+            Text('Customer Visits', style: Theme.of(context).textTheme.titleLarge,),
+            SizedBox(height: 20,),
+            StatisticsCard(),
+
+            // cards
+
             Text(Strings.customersDropdownTitle),
             CustomersDropdown(),
             const Divider(),
@@ -69,3 +78,6 @@ class _VisitsPageState extends State<VisitsPage> {
     );
   }
 }
+
+
+
