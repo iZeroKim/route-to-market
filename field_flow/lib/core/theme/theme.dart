@@ -39,11 +39,11 @@ class CustomThemeData {
     titleLarge: GoogleFonts.montserrat(
         color: Colors.black,
         fontSize: 18,
-        fontWeight: FontWeight.bold),
+        fontWeight: FontWeight.w500),
     titleMedium: GoogleFonts.montserrat(
         color: Colors.black,
         fontSize: 16,
-        fontWeight: FontWeight.w600),
+        fontWeight: FontWeight.w700),
     titleSmall: GoogleFonts.montserrat(color: AppColors.primaryColor),
     bodyLarge: GoogleFonts.montserrat(color: AppColors.primaryColor),
     bodyMedium: GoogleFonts.montserrat(

@@ -35,7 +35,7 @@ class StatisticsCard extends StatelessWidget {
                      padding: const EdgeInsets.all(20),
                      decoration: BoxDecoration(
                        color: const Color(0xFFE3F9E5),
-                       borderRadius: BorderRadius.circular(20),
+                       borderRadius: BorderRadius.circular(30),
                      ),
                      child: Stack(
                        children: [
@@ -114,7 +114,7 @@ class StatisticsCard extends StatelessWidget {
                                const Positioned(
                                  top: 0,
                                  right: 0,
-                                 child: Icon(Icons.alarm_sharp, color: Colors.orange),
+                                 child: Icon(Icons.schedule, color: Colors.orange),
                                ),
                                Column(
                                  mainAxisAlignment: MainAxisAlignment.center,

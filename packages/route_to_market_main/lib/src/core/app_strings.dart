@@ -8,4 +8,7 @@ class Strings {
   static const String completed = 'Completed';
   static const String pending = 'Pending';
   static const String cancelled = 'Cancelled';
+
+  static const String statistics = 'Visits statistics';
+  static const String customerVisits = 'Customer visits';
 }

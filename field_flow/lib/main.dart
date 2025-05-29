@@ -61,7 +61,7 @@ class MyApp extends StatelessWidget {
         providers: [
           BlocProvider(create: (context) => VisitsCubit(getVisitsUseCase: getVisitsUseCase)),
           BlocProvider(create: (context) => CustomersCubit(getCustomersUseCase: getCustomersUseCase)),
-          BlocProvider(create: (context) => ActivitiesCubit(getActivitiesUseCase: getActivitiesUseCase)),
+          BlocProvider(create: (context) => ActivitiesCubit(getActivitiesUseCase: getActivitiesUseCase)..fetchActivities()),
           BlocProvider(create: (context) => AddVisitCubit(addVisitUseCase: addVisitUseCase)),
           BlocProvider(create: (context) => VisitStatisticsCubit(getVisitStatisticsUseCase: getVisitStatisticsUseCase)),
           BlocProvider(create: (context) => VisitStatisticsByCustomerCubit(getVisitStatisticsByCustomerUseCase: getVisitStatisticsByCustomerUseCase)),
