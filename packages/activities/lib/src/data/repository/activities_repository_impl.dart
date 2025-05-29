@@ -1,11 +1,7 @@
 import 'dart:convert';
 
 import 'package:activities/src/domain/repositories/activities_repository.dart';
-
-import '../../domain/entities/activity.dart';
 import 'package:route_to_market_main/route_to_market_main.dart';
-
-import '../models/activity_model.dart';
 
 class ActivityRepositoryImpl extends ActivitiesRepository{
   final ApiClient _apiClient;

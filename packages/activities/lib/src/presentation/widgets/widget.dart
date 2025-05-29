@@ -45,7 +45,7 @@ class ActivitiesDropdown extends StatelessWidget {
                       height: 15,
                       width: 15,
                       child: CircularProgressIndicator(
-                        color: Colors.grey.withOpacity(0.8),
+                        color: Colors.grey,
                         strokeWidth: 1,
                       ),
                     )

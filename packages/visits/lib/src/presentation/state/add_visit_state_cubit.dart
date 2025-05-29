@@ -1,5 +1,4 @@
 import 'package:flutter_bloc/flutter_bloc.dart';
-import 'package:visits/src/domain/usecases/add_visit_use_case.dart';
 
 import '../../../visits.dart';
 
