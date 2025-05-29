@@ -3,7 +3,12 @@
 A mobile Flutter application that helps sales agents track visits to customers as part of a Route-to-Market Sales Force Automation system.
 
 ## 📸 Screenshots
+#Visits list
 
+<img src="[https://user-images.githubusercontent.com/.../image.png](https://github.com/user-attachments/assets/5212c846-554e-4541-8b17-91fc84ffd749)" alt="Screenshot" width="400">
+
+# Visit details
+![Screenshot_2025-05-29-23-45-37-09_aa60658cd3f19f08c50c717960654b5b](https://github.com/user-attachments/assets/2e311acb-fb7f-4119-ad1d-4555b61fce55)
 
 ---
 
