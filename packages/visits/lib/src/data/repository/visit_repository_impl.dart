@@ -75,11 +75,23 @@ class VisitRepositoryImpl implements VisitRepository {
     for (final item in body) {
       final status = VisitStatus.values.firstWhere((status) => status.toApiString() == item['status']);
       result[status] = int.tryParse(item['count']) ?? 0;
-
     }
     return result;
   }
 
+  @override
+  Future<Map<VisitStatus, int>> getVisitStatisticsByCustomer(int customerId) async {
+    final uri = Uri.parse('$_baseUrl/visits?customer_id=eq.$customerId&select=status,count:id&group=status');
+    final response = await _safeRequest(() => _client.get(uri, headers: _headers));
+    final List<dynamic> body = json.decode(response.body);
+
+    final result = <VisitStatus, int>{};
+    for (final item in body) {
+      final status = VisitStatus.values.firstWhere((status) => status.toApiString() == item['status']);
+      result[status] = int.tryParse(item['count']) ?? 0;
+    }
+    return result;
+  }
   @override
   Future<List<Visit>> getVisits({
     String? searchQuery, VisitStatus? statusFilter, DateTime? startDate, DateTime? endDate

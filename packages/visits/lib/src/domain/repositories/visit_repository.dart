@@ -18,4 +18,6 @@ abstract class VisitRepository {
   Future<int> getVisitCount({VisitStatus? status});
 
   Future<Map<VisitStatus, int>> getVisitStatistics();
+
+  Future<Map<VisitStatus, int>> getVisitStatisticsByCustomer(int customerId);
 }
