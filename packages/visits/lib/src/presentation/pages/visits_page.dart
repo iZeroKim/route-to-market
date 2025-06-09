@@ -101,6 +101,7 @@ class _VisitsPageState extends State<VisitsPage> {
                       return const Center(child: CircularProgressIndicator());
                     } else if (state is VisitsLoaded) {
                       final visits = [...state.visits];
+                      print('here');
 
                       visits.sort((a, b) {
                         final aDate = a.visitDate ?? DateTime(1970);

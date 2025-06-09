@@ -51,6 +51,7 @@ class VisitsCubit extends Cubit<VisitsState> {
       );
       emit(VisitsLoaded(visits: visits));
     } catch (e) {
+      print('Error fetching visits: $e');
       emit(VisitsError(message: e.toString()));
     }
   }

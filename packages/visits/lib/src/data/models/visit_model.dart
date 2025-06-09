@@ -22,6 +22,18 @@ class VisitModel {
   });
 
   factory VisitModel.fromJson(Map<String, dynamic> json) {
+    print( 'JSON: ${json['activities_done']}');
+    List<int> activitiesDone =json['activities_done'] == null ? [] : json['activities_done'].forEach((element) {
+      print('element: $element');
+      try {
+        int.parse(element.toString());
+        print('parsed: $element');
+      } catch (e) {
+        print('error: $e');
+      }
+    })?.toList() ?? []; 
+   
+    
     return VisitModel(
       id: json['id'] as int,
       customerId: json['customer_id'] as int,
@@ -29,9 +41,7 @@ class VisitModel {
       status: VisitStatusExtension.fromApiString(json['status'] as String),
       location: json['location'] as String?,
       notes: json['notes'] as String?,
-      activitiesDone: List<String>.from(json['activities_done'] ?? [])
-          .map((e) => int.parse(e))
-          .toList(),
+      activitiesDone: activitiesDone,
       createdAt: json['created_at'] == null ? null : DateTime.parse(json['created_at'] as String),
     );
   }
